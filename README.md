@@ -26,7 +26,7 @@ API (for currency): ExchangeRate API
 (Optional features: SpeechRecognition, pyttsx3, Flask)
 📦 Installation
 Clone the repo
-git clone https://github.com/DiyaWalvekarvalue-converter.git
+git clone https://github.com/DiyaWalvekar/Value-Converter.git
 cd value-converter
 (Optional) Create a virtual environment
 python -m venv venv source venv/bin/activate # or venv\Scripts\activate on Windows
@@ -39,4 +39,5 @@ Future Enhancements:
 
 🌐 Web interface using Flask or Streamlit 🎤 Voice input/output (speech-to-text, text-to-speech) 🌗 Dark mode toggle for UI 🧠 Smart unit detection (e.g., “Convert 5kg to pounds” via NLP) 🧾 Download conversion history as PDF or CSV
 
-Developed by Diya Walvekar Github :DiyaWalvekar
+Developed by Diya Walvekar 
+Github :DiyaWalvekar
