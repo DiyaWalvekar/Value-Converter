@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weight Converter</h1>
+        
+        <form action="/convert_weight" method="POST">
+            <div class="input-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" step="0.01" placeholder="Enter weight" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit">
+                        <option value="Kilogram">Kilogram (kg)</option>
+                        <option value="Gram">Gram (g)</option>
+                        <option value="Milligram">Milligram (mg)</option>
+                        <option value="Metric Ton">Metric Ton (t)</option>
+                        <option value="Pound">Pound (lb)</option>
+                        <option value="Ounce">Ounce (oz)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit">
+                        <option value="Kilogram">Kilogram (kg)</option>
+                        <option value="Gram">Gram (g)</option>
+                        <option value="Milligram">Milligram (mg)</option>
+                        <option value="Metric Ton">Metric Ton (t)</option>
+                        <option value="Pound">Pound (lb)</option>
+                        <option value="Ounce">Ounce (oz)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Weight: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+        <a href="/home" class="back-button">Back</a>
+        
+    </div>
+</body>
+</html>

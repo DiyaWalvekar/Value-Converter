@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Density Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Density Converter</h1>
+        
+        <form action="/convert_density" method="POST">
+            <div class="input-group">
+                <label for="amount">Enter Value:</label>
+                <input type="number" id="amount" name="amount" step="0.01" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit">
+                        <option value="kg/m³">kg/m³</option>
+                        <option value="g/cm³">g/cm³</option>
+                        <option value="lb/ft³">lb/ft³</option>
+                        <option value="lb/in³">lb/in³</option>
+                        <option value="oz/in³">oz/in³</option>
+                        <option value="g/L">g/L</option>
+                        <option value="mg/m³">mg/m³</option>
+                        <option value="g/m³">g/m³</option>
+                        <option value="kg/L">kg/L</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit">
+                        <option value="kg/m³">kg/m³</option>
+                        <option value="g/cm³">g/cm³</option>
+                        <option value="lb/ft³">lb/ft³</option>
+                        <option value="lb/in³">lb/in³</option>
+                        <option value="oz/in³">oz/in³</option>
+                        <option value="g/L">g/L</option>
+                        <option value="mg/m³">mg/m³</option>
+                        <option value="g/m³">g/m³</option>
+                        <option value="kg/L">kg/L</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Value: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

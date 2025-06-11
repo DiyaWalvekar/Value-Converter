@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Area Converter</h1>
+
+        <form action="/convert_area" method="POST">
+            <div class="input-group">
+                <label for="area">Area</label>
+                <input type="number" id="area" name="area" step="0.01" placeholder="Enter area" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit">
+                        <option value="square meter">Square Meter (m²)</option>
+                        <option value="square kilometer">Square Kilometer (km²)</option>
+                        <option value="square mile">Square Mile (mi²)</option>
+                        <option value="square yard">Square Yard (yd²)</option>
+                        <option value="square foot">Square Foot (ft²)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit">
+                        <option value="square meter">Square Meter (m²)</option>
+                        <option value="square kilometer">Square Kilometer (km²)</option>
+                        <option value="square mile">Square Mile (mi²)</option>
+                        <option value="square yard">Square Yard (yd²)</option>
+                        <option value="square foot">Square Foot (ft²)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Area: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

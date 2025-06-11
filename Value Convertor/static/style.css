@@ -1,0 +1,314 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Deep Blue-Green Gradient */
+    text-align: center;
+    padding: 20px;
+    color: white;
+    margin: 0;
+}
+
+/* Remove underline from links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #76c7c0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Conversion Cards Layout */
+.conversion-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Cards - All Same Size */
+.card {
+    background: rgba(255, 255, 255, 0.20);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 250px; /* Ensuring uniform width */
+    height: 220px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    animation: slideUp 1s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.30);
+}
+
+/* Icons */
+.card i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #76c7c0; /* Soft Aqua */
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover i {
+    transform: rotate(10deg);
+}
+
+/* Card Text */
+.card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Input Groups */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+}
+
+/* Labels */
+.input-group label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: white;
+}
+
+/* Input Fields */
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color:black;
+}
+
+/* Flex Row for From and To */
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    width: 80%;
+}
+
+/* Button */
+button {
+    background: #76c7c0; /* Soft Aqua */
+    color: #0f2027;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 50%;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #5a9;
+    transform: scale(1.05);
+}
+
+/* Converted Amount */
+.result {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #76c7c0;
+    margin-top: 10px;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background:  #76c7c0;
+    color:black;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background:  #76c7c0;
+    background: #5a9;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 255, 204, 0.5);
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .conversion-options {
+        grid-template-columns: repeat(2, 1fr); /* Two cards per row for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .conversion-options {
+        grid-template-columns: repeat(1, 1fr); /* One card per row for mobile screens */
+    }
+    
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .input-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    button {
+        width: 70%;
+    }
+}
+/* Additional Glassmorphism Effect */
+.container {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+/* Smooth Card Hover Glow */
+.card:hover {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Neon Border Effect on Focus */
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border: 2px solid #00ffcc;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+}
+
+/* More Realistic Button Click Effect */
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(0, 255, 204, 0.3);
+}
+
+/* Additional Soft Glow on Hover */
+button:hover {
+    box-shadow: 0 8px 20px rgba(0, 255, 204, 0.5);
+}
+
+/* Enhanced 3D Depth for Results */
+.result {
+    text-shadow: 2px 4px 8px rgba(255, 255, 255, 0.4);
+    font-size: 2rem;
+}
+
+/* Updated Responsive Tweaks for Better Mobile View */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    p {
+        font-size: 1.1rem;
+    }
+    .container {
+        width: 95%;
+    }
+    .card {
+        width: 90%;
+    }
+    button {
+        width: 75%;
+    }
+}

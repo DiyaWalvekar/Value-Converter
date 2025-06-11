@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        
+        <form action="/convert_currency" method="POST">
+            <div class="input-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" step="0.01" placeholder="Enter amount" required>
+            </div>
+                    
+                    
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_currency">From</label>
+                    <select id="from_currency" name="from_currency">
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="INR">INR - Indian Rupee</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="CHF">CHF - Swiss Franc</option>
+                        <option value="AED">AED - UAE Dirham</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_currency">To</label>
+                    <select id="to_currency" name="to_currency">
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="INR">INR - Indian Rupee</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="CHF">CHF - Swiss Franc</option>
+                        <option value="AED">AED - UAE Dirham</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Amount: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+        <br>
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

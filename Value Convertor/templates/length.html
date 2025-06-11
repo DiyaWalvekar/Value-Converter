@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function updateConversion() {
+            let fromUnit = document.getElementById("from_unit").value;
+            let toUnit = document.getElementById("to_unit").value;
+
+            if (fromUnit !== toUnit) {  // Ensure different units are selected
+                fetch(`/get_conversion?from=${fromUnit}&to=${toUnit}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("conversionRate").innerText = 
+                            `1 ${fromUnit} = ${data.rate} ${toUnit}`;
+                    })
+                    .catch(error => console.error("Error fetching conversion:", error));
+            } else {
+                document.getElementById("conversionRate").innerText = "Select different units";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Length Converter</h1>
+        
+        <form action="/convert_length" method="POST">
+            <div class="input-group">
+                <label for="length">Length</label>
+                <input type="number" id="length" name="length" step="0.01" placeholder="Enter length" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit" onchange="updateConversion()">
+                        <option value="meters">Meters (m)</option>
+                        <option value="kilometers">Kilometers (km)</option>
+                        <option value="centimeters">Centimeters (cm)</option>
+                        <option value="millimeters">Millimeters (mm)</option>
+                        <option value="miles">Miles (mi)</option>
+                        <option value="yards">Yards (yd)</option>
+                        <option value="feet">Feet (ft)</option>
+                        <option value="inches">Inches (in)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit" onchange="updateConversion()">
+                        <option value="meters">Meters (m)</option>
+                        <option value="kilometers">Kilometers (km)</option>
+                        <option value="centimeters">Centimeters (cm)</option>
+                        <option value="millimeters">Millimeters (mm)</option>
+                        <option value="miles">Miles (mi)</option>
+                        <option value="yards">Yards (yd)</option>
+                        <option value="feet">Feet (ft)</option>
+                        <option value="inches">Inches (in)</option>
+                    </select>
+                </div>
+            </div>
+
+            <p id="conversionRate">Select units to see conversion rate</p>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Length: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+        <br>
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!-- templates/speed.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Speed Converter</h1>
+
+        <form action="/convert_speed" method="POST">
+            <div class="input-group">
+                <label for="speed">Speed</label>
+                <input type="number" id="speed" name="speed" step="0.01" placeholder="Enter speed" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit">
+                        <option value="km/h">Kilometers per Hour (km/h)</option>
+                        <option value="m/s">Meters per Second (m/s)</option>
+                        <option value="mph">Miles per Hour (mph)</option>
+                        <option value="knot">Knots</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit">
+                        <option value="km/h">Kilometers per Hour (km/h)</option>
+                        <option value="m/s">Meters per Second (m/s)</option>
+                        <option value="mph">Miles per Hour (mph)</option>
+                        <option value="knot">Knots</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Speed: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+
+        <br>
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

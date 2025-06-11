@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Volume Converter</h1>
+
+        <form action="/convert_volume" method="POST">
+            <div class="input-group">
+                <label for="volume">Volume</label>
+                <input type="number" id="volume" name="volume" step="0.01" placeholder="Enter volume" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit">
+                        <option value="liter">Liter (L)</option>
+                        <option value="milliliter">Milliliter (mL)</option>
+                        <option value="cubic meter">Cubic Meter (m³)</option>
+                        <option value="cubic inch">Cubic Inch (in³)</option>
+                        <option value="cubic foot">Cubic Foot (ft³)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit">
+                        <option value="liter">Liter (L)</option>
+                        <option value="milliliter">Milliliter (mL)</option>
+                        <option value="cubic meter">Cubic Meter (m³)</option>
+                        <option value="cubic inch">Cubic Inch (in³)</option>
+                        <option value="cubic foot">Cubic Foot (ft³)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Volume: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

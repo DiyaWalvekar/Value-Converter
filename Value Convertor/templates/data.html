@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Storage Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Data Storage Converter</h1>
+        
+        <form action="/convert_data" method="POST">
+            <div class="input-group">
+                <label for="data">Data Value</label>
+                <input type="number" id="data" name="data" step="0.01" placeholder="Enter data size" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit">
+                        <option value="B">Bytes (B)</option>
+                        <option value="KB">Kilobytes (KB)</option>
+                        <option value="MB">Megabytes (MB)</option>
+                        <option value="GB">Gigabytes (GB)</option>
+                        <option value="TB">Terabytes (TB)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit">
+                        <option value="B">Bytes (B)</option>
+                        <option value="KB">Kilobytes (KB)</option>
+                        <option value="MB">Megabytes (MB)</option>
+                        <option value="GB">Gigabytes (GB)</option>
+                        <option value="TB">Terabytes (TB)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Data: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

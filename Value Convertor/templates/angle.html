@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Angle Converter</h1>
+        
+        <form action="/convert_angle" method="POST">
+            <div class="input-group">
+                <label for="angle">Angle</label>
+                <input type="number" id="angle" name="angle" step="0.01" placeholder="Enter angle" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="from_unit">From</label>
+                    <select id="from_unit" name="from_unit">
+                        <option value="Degree">Degree (°)</option>
+                        <option value="Radian">Radian (rad)</option>
+                        <option value="Gradian">Gradian (grad)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to_unit">To</label>
+                    <select id="to_unit" name="to_unit">
+                        <option value="Degree">Degree (°)</option>
+                        <option value="Radian">Radian (rad)</option>
+                        <option value="Gradian">Gradian (grad)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+            <h2>Converted Angle: <span class="result">{{ result }}</span></h2>
+        {% endif %}
+        
+        <a href="/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>
