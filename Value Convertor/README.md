@@ -38,7 +38,7 @@ A powerful and easy-to-use **multi-unit value converter** built using Python. Th
 
 1. Clone the repo  
    ```bash
-   git clone https://github.com/yourusername/value-converter.git
+   git clone https://github.com/DiyaWalvekarvalue-converter.git
    cd value-converter
 
 2. (Optional) Create a virtual environment
